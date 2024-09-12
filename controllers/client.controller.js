@@ -11,7 +11,9 @@ const Agent = require('../models/agent.model');
 ////////////////////////////////////////////////////////////////////////////////
 async function getDocuments(req, res, next) {
   try {
-    res.render("users/clients/documents");
+    const agent = await Agent.getAgentByUid(req.session.uid);
+    let clientName = agent.name;
+    res.render("users/clients/documents",{clientName});
   } catch (error) {
     next(error);
   }
@@ -21,6 +23,8 @@ async function getDocuments(req, res, next) {
 async function getEmploymentAgreement(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
+    let clientName = agent.name;
+
     res.render("users/clients/documents/employment-agreement", { agent });
 
     ///Special templates for specific clients
@@ -47,7 +51,8 @@ async function getEmploymentAnnexDuration(req, res, next) {
 async function getEmploymentAnnexSalary(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
-    res.render("users/clients/documents/annex-employment-agreement-salary", { agent });
+    let clientName = agent.name;
+    res.render("users/clients/documents/annex-employment-agreement-salary", { agent, clientName });
   } catch (error) {
     next(error);
   }
@@ -57,7 +62,8 @@ async function getEmploymentAnnexSalary(req, res, next) {
 async function getEmploymentAnnexWorkPosition(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
-    res.render("users/clients/documents/annex-employment-agreement-work-position", { agent });
+    let clientName = agent.name;
+    res.render("users/clients/documents/annex-employment-agreement-work-position", { agent, clientName });
   } catch (error) {
     next(error);
   }
@@ -67,7 +73,8 @@ async function getEmploymentAnnexWorkPosition(req, res, next) {
 async function getAnnualLeaveDecision(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
-    res.render("users/clients/documents/annual-leave-decision", { agent });
+    let clientName = agent.name;
+    res.render("users/clients/documents/annual-leave-decision", { agent, clientName });
   } catch (error) {
     next(error);
   }
@@ -77,7 +84,8 @@ async function getAnnualLeaveDecision(req, res, next) {
 async function getDisciplinaryMeasure(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
-    res.render("users/clients/documents/decision-for-disciplinary-measure", { agent });
+    let clientName = agent.name;
+    res.render("users/clients/documents/decision-for-disciplinary-measure", { agent, clientName });
   } catch (error) {
     next(error);
   }
@@ -127,8 +135,10 @@ async function getTerminationDueToPersonalReasons(req, res, next) {
 // New methods added
 
 async function getMyDocuments(req, res, next) {
+  const agent = await Agent.getAgentByUid(req.session.uid);
+  let clientName = agent.name;
   try {
-    res.render("users/clients/my-documents");  // Render the appropriate view
+    res.render("users/clients/my-documents", {clientName});  // Render the appropriate view
   } catch (error) {
     next(error);
   }
@@ -136,7 +146,9 @@ async function getMyDocuments(req, res, next) {
 
 async function getBusinessCalendar(req, res, next) {
   try {
-    res.render("users/clients/business-calendar");  // Render the appropriate view
+    const agent = await Agent.getAgentByUid(req.session.uid);
+    let clientName = agent.name;
+    res.render("users/clients/business-calendar", {clientName});  // Render the appropriate view
   } catch (error) {
     next(error);
   }
@@ -144,8 +156,10 @@ async function getBusinessCalendar(req, res, next) {
 
 async function requestedConsultation(req, res, next) {
   try {
+    const agent = await Agent.getAgentByUid(req.session.uid);
+    let clientName = agent.name;
     // Logic to handle post request for consultation
-    res.send("Consultation requested");  // Placeholder response
+    res.send("Consultation requested", {clientName});  // Placeholder response
   } catch (error) {
     next(error);
   }
@@ -154,7 +168,9 @@ async function requestedConsultation(req, res, next) {
 ////////////////////////////////////////////////////////////////////////////////
 async function getLhc(req, res, next) {
   try {
-    res.render("users/clients/lhc", {});
+    const agent = await Agent.getAgentByUid(req.session.uid);
+    let clientName = agent.name;
+    res.render("users/clients/lhc", {clientName});
   } catch (error) {
     next(error);
   }
@@ -163,7 +179,9 @@ async function getLhc(req, res, next) {
 ////////////////////////////////////////////////////////////////////////////////
 async function getLegalUpdates(req, res, next) {
   try {
-    res.render("users/clients/legal-updates", {});
+    const agent = await Agent.getAgentByUid(req.session.uid);
+    let clientName = agent.name;
+    res.render("users/clients/legal-updates", {clientName});
   } catch (error) {
     next(error);
   }
