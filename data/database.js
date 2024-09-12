@@ -4,7 +4,7 @@ const MongoClient = monbodb.MongoClient;
 
 let database;
 
-const MONGODB_URI = "mongodb+srv://terminalnexa:nexaterminal2024@nexacluster.ddjqk.mongodb.net/nexa";
+const MONGODB_URI = "mongodb+srv://terminalnexa:terminalnexa2024@nexacluster.ddjqk.mongodb.net/nexa";
 
 // ?retryWrites=true&w=majority/
 
