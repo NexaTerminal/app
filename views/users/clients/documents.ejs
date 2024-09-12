@@ -1,0 +1,173 @@
+<%- include('../../shared/includes/head', {pageTitle: 'Законски измени'})%>
+    <link rel="stylesheet" href="/styles/base.css">
+    <!-- <link rel="stylesheet" href="/styles/documents.css"> -->
+
+</head>
+<body>
+    <%- include('../../shared/includes/header', { clientName: clientName || 'Guest' }) %>
+    <main> 
+    <section class="document-category">
+        <h2 style="font-size: 24px; color: #333; margin-bottom: 15px; border-bottom: 2px solid #ddd; padding-bottom: 5px;">Работни односи</h2>
+        <div class="templates-grid">
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/contract" class="template-link">
+                Договор за вработување
+            </a>
+        
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/annex-duration" class="template-link">
+                Анекс за продолжување на времетраење на договор за вработување
+            </a>
+        
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/annex-salary" class="template-link">
+                Анекс за промена на плата
+            </a>
+        
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/annex-work-position" class="template-link">
+                Анекс за промена на работна позиција
+            </a>
+        
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/annual-leave-decision" class="template-link">
+                Решение за годишен одмор
+            </a>
+        
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/decision-for-disciplinary-measure" class="template-link">
+                Решение за дисциплинска мерка - парична санкција
+            </a>
+        
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/decision-for-disciplinary-measure-warning" class="template-link">
+                Решение за дисциплинска мерка - опомена
+            </a>
+        
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/termination-agreement" class="template-link">
+                Спогодба за престанок на работен однос
+            </a>
+        
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/termination-warning-letter" class="template-link">
+                Предупредување пред отказ од лични причини
+            </a>
+        
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/termination-due-to-personal-reasons" class="template-link">
+                Отказ од лични причини
+            </a>
+        
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/nda" class="template-link">
+                Non-Disclosure Agreement
+            </a>
+        
+            <a style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" href="/documents/employment/nda" class="template-link">
+                Non-Disclosure Agreement
+            </a>
+        </div>
+    </section>
+    <section class="document-category">
+        <h2 style="font-size: 24px; color: #333; margin-bottom: 15px; border-bottom: 2px solid #ddd; padding-bottom: 5px;">Корпоративни документи</h2>
+        <div class="templates-grid">
+            <a href="/documents/corporate/bylaws" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Статут на Друштво
+            </a>
+            <a href="/documents/corporate/incorporation" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Уверение за регистрација
+            </a>
+            <a href="/documents/corporate/minutes" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Записник од состанок
+            </a>
+            <a href="/documents/corporate/decision-appointment" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Одлука за именување
+            </a>
+            <a href="/documents/corporate/decision-shareholders" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Одлука на акционери
+            </a>
+            <a href="/documents/corporate/shareholder-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор меѓу акционери
+            </a>
+            <a href="/documents/corporate/board-resolution" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Одлука на управен одбор
+            </a>
+            <a href="/documents/corporate/amendment-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Спогодба за измена
+            </a>
+            <!-- Add more links as needed -->
+        </div>
+    </section>
+    
+    
+    <section class="document-category">
+        <h2 style="font-size: 24px; color: #333; margin-bottom: 15px; border-bottom: 2px solid #ddd; padding-bottom: 5px;">Облигациони односи</h2>
+        <div class="templates-grid">
+            <a href="/documents/obligations/service-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Опомена пред тужба
+            </a>
+            <a href="/documents/obligations/termination-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Спогодба за раскинување на договор
+            </a>
+            <a href="/documents/obligations/sales-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за купопродажба
+            </a>
+            <a href="/documents/obligations/lease-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за закуп
+            </a>
+            <a href="/documents/obligations/loan-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за заем
+            </a>
+            <a href="/documents/obligations/settlement-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за спогодба
+            </a>
+            <a href="/documents/obligations/guarantee-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за гаранција
+            </a>
+            <a href="/documents/obligations/agency-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за застапување
+            </a>
+            <a href="/documents/obligations/consignment-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за консигнација
+            </a>
+            <a href="/documents/obligations/license-agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Лиценцен договор
+            </a>
+            <a href="/documents/obligations/-----agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за изработка на софтвер
+            </a>
+            <a href="/documents/obligations/-----agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за изработка на веб страна
+            </a>
+            <a href="/documents/obligations/-----agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за ангажман на консултант
+            </a>
+            <a href="/documents/obligations/-----agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за извдување на градежни работи
+            </a>
+            <a href="/documents/obligations/-----agreement" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Договор за вршење на транспорт работи
+            </a>
+            <!-- Add more links as needed -->
+        </div>
+    </section>    
+    <section class="document-category">
+        <h2 style="font-size: 24px; color: #333; margin-bottom: 15px; border-bottom: 2px solid #ddd; padding-bottom: 5px;">Безбедност при работа</h2>
+        <div class="templates-grid">
+            <a href="/documents/safety/safety-policy" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Политика за безбедност
+            </a>
+            <a href="/documents/safety/inspection-report" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Извештај од инспекција
+            </a>
+            <a href="/documents/safety/emergency-plan" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                План за итни случаи
+            </a>
+            <a href="/documents/safety/risk-assessment" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Проценка на ризик
+            </a>
+            <a href="/documents/safety/fire-safety" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Правилник за противпожарна заштита
+            </a>
+            <a href="/documents/safety/safety-training" style="display: block; text-align: center; padding: 15px; margin: 10px; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #333; font-size: 16px; font-weight: bold; background-color: #f9f9f9; transition: all 0.3s ease;" class="template-link">
+                Обука за безбедност при работа
+            </a>
+            <!-- Add more links as needed -->
+        </div>
+    </section>
+    
+    
+</main>
+<%- include('../../shared/includes/footer')%>
+
+

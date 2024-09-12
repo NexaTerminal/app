@@ -1,0 +1,534 @@
+/* General styling */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.dashboard-nav {
+    width: 250px;
+    background-color: var(--color-primary);
+    color: var(--color-light-gray);
+}
+
+.dashboard-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: var(--color-light-gray);
+    padding-top: 10px;
+    padding-bottom: 0;
+    width: 15rem;
+}
+
+/* Navigation items */
+.nav-items {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.nav-section {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+}
+
+.nav-title {
+    padding: 5px 10px;
+    cursor: pointer;
+    color: var(--color-light-gray);
+    background-color: var(--color-primary);
+    /* font-weight: bold; */
+    font-size: 14px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+
+.nav-title:hover {
+    background-color: var(--color-secondary);
+    border-left: 3px solid var(--color-accent);
+}
+
+/* Ensure the dropdown remains open while hovering over both the title and the dropdown */
+.nav-section:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    margin-top: -2.5rem;
+}
+
+.nav-title::after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    color: var(--color-light-gray);
+}
+
+.nav-section:hover .nav-title::after {
+    transform: rotate(90deg);
+    color: var(--color-accent);
+}
+
+/* Dropdown menu on the right side */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Appears to the right of the nav-title */
+    background-color: var(--color-primary);
+    min-width: 220px;
+    box-shadow: var(--shadow-small);
+    padding: 0;
+    z-index: 100; /* Ensures dropdown is above other elements */
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-section:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.dropdown-menu li {
+    padding: 5px 10px;
+    color: var(--color-light-gray);
+    transition: background-color 0.3s ease;
+    margin-left: -0.2rem;
+}
+
+.dropdown-menu li:hover {
+    background-color: var(--color-secondary);
+}
+
+.dropdown-menu li a {
+    color: var(--color-light-gray);
+    text-decoration: none;
+    font-size: small;
+}
+
+.dropdown-menu li a:hover {
+    color: var(--color-accent);
+}
+
+/* Ensure the dropdown menu stays visible when moving from <p> to the dropdown */
+.nav-section:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Grid styling for dashboard information */
+#info-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    text-align: left;
+    margin-top: -6.5rem;
+}
+
+#info-dashboard a {
+    color: var(--color-primary);
+    font-weight: lighter;
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+/* Welcome message styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px;
+}
+
+.welcome-message {
+    font-style: italic;
+    margin-bottom: 30px;
+    color: var(--color-light-gray);
+}
+
+.dashboard {
+    margin-bottom: 30px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    flex: 3;
+}
+
+.info-grid > div {
+    background-color: var(--color-secondary);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px var(--color-primary);
+    margin-top: 7rem;
+}
+
+.info-grid h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--color-text);
+}
+
+.info-grid ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-grid li {
+    margin-bottom: 10px;
+}
+
+.info-grid hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid var(--color-accent);
+}
+
+.info-grid a {
+    display: inline-block;
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.recent-activity {
+    flex: 1;
+}
+
+.consultation-section {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px var(--color-primary);
+    padding-bottom: 5px;
+    max-width: 90%;
+    margin: auto;
+    margin-top: -1rem;
+}
+
+.consultation-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color:var(--color-text);
+}
+
+.consultation-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.consultation-form textarea {
+    width: 100%;
+    height: 90px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary);
+}
+
+/* Styling for the top bar */
+#top-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background-color:var(--color-primary);
+    color: #fff;
+    font-size: 14px;
+}
+
+#user-profile {
+    position: relative;
+    cursor: pointer;
+}
+
+#user-profile span {
+    padding-right: 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--color-primary);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 4px;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu li a,
+.dropdown-menu li button {
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 100%;
+    display: block;
+}
+
+.dropdown-menu li:hover {
+    background-color: var(--color-text);
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--color-text);
+}
+
+#user-profile:hover .dropdown-menu {
+    display: block;
+}
+
+/* Main header styling */
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #23282d;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 40px;
+}
+
+#logo a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Mobile menu button styling */
+#mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
+#mobile-menu {
+    display: none;
+    background-color: #32373c;
+    padding: 20px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    #mobile-menu-btn {
+        display: block;
+    }
+
+    #mobile-menu.active {
+        display: block;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #top-bar {
+        display: none;
+    }
+}
+
+/* Top header bar */
+#top-header-bar {
+    background-color: var(--color-primary);
+    height: 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-bottom: 2.5rem;
+}
+
+.container {
+    position: absolute;
+    right: 20px;
+    top: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #23282d;
+    color: white;
+    padding: 1px 1px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    margin-top: -1rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px var(--color-text);
+    z-index: 1;
+    max-width: 4rem;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content form {
+    padding: 12px 16px;
+}
+
+.dropdown-content form button {
+    background: var(--color-secondary);
+    border: none;
+    padding: 1rem;
+    font: inherit;
+    cursor: pointer;
+    color: var(--color-text);
+    margin: auto;
+}
+
+.dropdown-content a:hover, .dropdown-content form button:hover {
+    /* background-color: var(--color-light-gray); */
+    color: var(--color-text);
+    font-weight: bold;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.templates-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.template-link {
+    color: var(--color-primary);
+}
+
+
+/* Stock exchange info bar */
+
+.ticker-container {
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: var(--color-secondary); /* Background color of the ticker */
+    color: #ffffff; /* Text color */
+    /* padding: 10px; */
+    padding-top: 4px;
+    padding-bottom: 4px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    border-bottom: 1px solid #96a2aa; /* Optional border for separation */
+    width: 100%;
+    margin: auto;
+    margin-top: -0.5rem;
+    overflow: hidden;
+  }
+  
+  .ticker-items {
+    display: inline-block;
+    white-space: nowrap;
+    animation: ticker 75s linear infinite; /* Adjust the duration as needed */
+    will-change: transform; /* Hint the browser that this element will be animated */
+    transform: translateX(0); /* Start the ticker off the right side of the screen */
+    animation-delay: -3s; /* Add this line */
+    width: max-content; /* Ensures the container is as wide as its content */
+  }
+
+  .ticker-item {
+    display: inline-block;
+    padding: 0 20px; /* Spacing between items */
+  }
+  
+  .ticker-item a {
+    color: rgb(21, 119, 23);
+    text-decoration: none;
+  }
+  
+  @keyframes ticker {
+    0% {
+        transform: translateX(0); /* Start at the beginning */
+    }
+    5% {
+        transform: translateX(0); /* Stay at the beginning for a short time */
+    }
+    100% {
+        transform: translateX(-100%); /* Move to the left */
+    }
+}

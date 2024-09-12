@@ -1,0 +1,58 @@
+.dashboard {
+    text-align: center;
+    padding: 0.25rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.actions .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.actions .btn i {
+    font-size: 1.5rem;
+}
+
+.actions .btn:hover {
+    background-color: var(--color-secondary);
+}
+
+.recent-activity, .notifications {
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.recent-activity h2, .notifications h2 {
+    font-family: 'Merriweather', serif;
+    color: var(--color-primary);
+}
+
+.recent-activity ul, .notifications ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-activity li, .notifications li {
+    background-color: var(--color-light-gray);
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: var(--border-radius-small);
+}

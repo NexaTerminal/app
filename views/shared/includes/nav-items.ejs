@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="/styles/dashboard.css">
+<script src="/scripts/dashboard.js" defer></script>
+
+<ul class="nav-items">
+  <% if (locals.isAuth) { %>
+    <!-- <div id="logo" style=" text-align: center;">
+      <a href="/" style="font-style: italic; margin-top: -2rem;">NeXa Law</a>
+    </div> -->
+    <div class="nav-section">
+      <p class="nav-title">Правни документи</p>
+      <ul class="dropdown-menu">
+        <li><a href="/documents">Сите теркови</a></li>
+        <li><a href="/my-documents">Мои теркови</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-section">
+      <p class="nav-title">Правна усогласеност</p>
+      <ul class="dropdown-menu">
+        <li><a href="/lhc">Скрининг за работни односи</a></li>
+        <li><a href="/lhc">Скрининг за лични податоци</a></li>
+        <li><a href="/lhc">Скрининг за БЗР</a></li>
+        <li><a href="/lhc">Скрининг за регулатива трговија</a></li>
+
+      </ul>
+    </div>
+
+    <div class="nav-section">
+      <p class="nav-title">Правни консултации</p>
+      <ul class="dropdown-menu">
+        <li><a href="/legal-updates">за посебно правно прашање</a></li>
+        <li><a href="/legal-updates">за потенцијална судска постапка</a></li>
+        <li><a href="/legal-updates">за проект (стратегија и понуда)</a></li>
+      </ul>
+    </div>
+    <p>_____________________</p>
+    <div class="nav-section">
+      <p class="nav-title">NeXa AI правен консултант</p>
+      <ul class="dropdown-menu">
+        <li><a href="/legal-updates">NeXa AI - Работни односи</a></li>
+        <li><a href="/legal-updates">NeXa AI - Деловно право</a></li>
+        <li><a href="/legal-updates">NeXa AI - Работни односи</a></li>
+      </ul>
+    </div>
+<p>_____________________</p>
+    <div class="nav-section">
+      <p class="nav-title">Информираност</p>
+      <ul class="dropdown-menu">
+        <li><a href="/legal-updates">Законски измени</a></li>
+        <li><a href="/legal-updates">Огласи и повици</a></li>
+        <li><a href="/legal-updates">Правен информатор</a></li>
+        <li><a href="/legal-updates">Судски одлуки</a></li>
+        <li><a href="/legal-updates">Аукции</a></li>
+        <li><a href="/business-calendar">Деловен календар</a></li>
+      </ul>
+    </div>
+<p>_____________________</p>
+<div class="nav-section">
+  <p class="nav-title">Вмрежување</p>
+  <ul class="dropdown-menu">
+    <li><a href="/legal-updates">Извести за настан</a></li>
+    <li><a href="/legal-updates">Извести за посебна понуда</a></li>
+    <li><a href="/legal-updates">Побарај за производ/услуга</a></li>
+    <li><a href="/legal-updates">Препорачај производ / услуга од друг</a></li>
+  </ul>
+</div>
+  <% } else { %>
+    <li><a class="login-link" href="/login">Најава</a></li>
+  <% } %>
+
+  <% if(locals.isAdmin) { %>
+    <!-- Admin-specific items -->
+  <% } %>
+</ul>

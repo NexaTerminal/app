@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <%- include('../../../shared/includes/head', {pageTitle: 'Анекс на Договор за Вработување'})%>
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/client.css">
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/navigation.css">
+  <link rel="stylesheet" href="/styles/dropdown.css">
+  <link rel="stylesheet" href="/styles/tools.css">
+  <link rel="stylesheet" href="/styles/documents.css">
+  <script src="/scripts/dropdown.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="/scripts/templates/annex-employment-agreement-work-position.js" defer></script>
+</head>
+<body>
+  <%- include('../../../shared/includes/header')%>
+  <main>
+    <div class="standard-template">
+      <div class="inputs-column">
+        <input type="hidden" placeholder="Назив на компанија" value="<%= agent.name %>" id="companyName">
+        <input type="hidden" placeholder="Адреса на компанија" value="<%= agent.clientAddress %>" id="companyAddress">
+        <input type="hidden" placeholder="ЕМБС на компанија" id="companyNumber">
+        <input type="hidden" placeholder="Управител на компанија" id="companyManager">
+        <input type="text" placeholder="Име на вработен" id="employeeName">
+        <input type="text" placeholder="Адреса на вработен" id="employeeAddress">
+        <input type="text" placeholder="ЕМБГ на вработен" id="employeePIN">
+        <input type="text" placeholder="Број на договор" id="agreementNo">
+        <input type="text" placeholder="Назив на нова работна позиција" id="newWorkPosition">
+        <textarea  placeholder="Работни задачи на нова позиција" id="newWorkPositionTasks"></textarea>
+
+        <button id="generateButton">Генерирај</button>
+      </div>
+      <div class="presentation-column">
+        <p>Визуелна презентација на содржината.</p>
+      </div>
+    </div>
+  </main>
+  <%- include('../../../shared/includes/footer')%>
+</body>
+</html>

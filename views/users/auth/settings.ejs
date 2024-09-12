@@ -1,0 +1,40 @@
+<%- include('../../shared/includes/head', {pageTitle: 'Login'})%>
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+ <%- include('../../shared/includes/header')%>
+<main>
+<p style="color: red;">router>toUpdateAgentinController function</p>
+    <form style="max-width: 35rem; text-align: left;" action="/signup" method="POST">
+        <h3>Промени податоци кај корисник</h3>
+        <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>">
+        <p>
+            <label for="email">Е-пошта</label>
+            <input type="input" id="email" name="email" value="<%=agent.email%>" required>
+        </p>
+        <p>
+            <label for="password">Лозинка</label>
+            <input type="text" id="password" name="password" minlength="6" value="<%=agent.password%> " placeholder="<%=agent.password%>" required>
+        </p>
+        <hr>
+        <p>
+            <label for="clientName">Назив</label>
+            <input type="text" id="clientName" name="clientName" value="<%=agent.clientName%>" placeholder="<%=agent.name%>" required>
+        </p>
+        <p>
+            <label for="clientAddress">Седиште</label>
+            <input type="text" id="clientAddress" name="clientAddress" value="<%=agent.clientAddress%>" placeholder="<%=agent.clientAddress%>"  required>
+        </p>
+        <p>
+            <label for="clientAddress">Даночен број</label>
+            <p type="text" id="clientTaxNumber" name="clientTaxNumber" value="<%=agent.clientTaxNumber%>"><%=agent.clientTaxNumber%></p>  
+        </p>
+        <p>
+            <label for="clientManager">Управител</label>
+            <input type="text" id="clientManager" name="clientManager" value="<%=agent.clientManager%>" required>
+        </p>
+        <button class="btn"> Промени </button>
+    </form>
+</main>
+<%- include('../../shared/includes/footer')%>

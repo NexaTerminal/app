@@ -1,0 +1,43 @@
+<%- include('../../shared/includes/head', {pageTitle: 'Login'})%>
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+ <%- include('../../shared/includes/header')%>
+<main>
+    <% if (!inputData.errorMessage) { %>
+        <section class="alert">
+            <p><%=inputData.errorMessage%></p>
+        </section>
+    <%}%>
+    <form style="max-width: 35rem;" action="/signup" method="POST">
+        <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>">
+        <p>
+            <label for="email">Е-пошта</label>
+            <input type="input" id="email" name="email" value="<%=inputData.email%>" required>
+        </p>
+        <p>
+            <label for="password">Лозинка</label>
+            <input type="password" id="password" name="password" minlength="6" value="<%=inputData.password%>" required>
+        </p>
+        <hr>
+        <p>
+            <label for="clientName">Назив</label>
+            <input type="text" id="clientName" name="clientName" value="<%=inputData.clientName%>" required>
+        </p>
+        <p>
+            <label for="clientAddress">Седиште</label>
+            <input type="text" id="clientAddress" name="clientAddress" value="<%=inputData.clientAddress%>" required>
+        </p>
+        <p>
+            <label for="clientAddress">Даночен број</label>
+            <input type="text" id="clientTaxNumber" name="clientTaxNumber" value="<%=inputData.clientTaxNumber%>" required>
+        </p>
+        <p>
+            <label for="clientManager">Управител</label>
+            <input type="text" id="clientManager" name="clientManager" value="<%=inputData.clientManager%>" required>
+        </p>
+        <button class="btn"> Креирај корисник </button>
+    </form>
+</main>
+<%- include('../../shared/includes/footer')%>

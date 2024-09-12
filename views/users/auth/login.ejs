@@ -1,0 +1,52 @@
+<%- include('../../shared/includes/head', {pageTitle: 'Signup'})%>
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+<main>
+    <form acction="/login" method="POST" >
+        <h1>NeXa</h1>
+        <h4 style="font-weight: lighter; font-style: oblique;">Revolutionizing legal services through smart automation and effortless solutions</h4>
+        <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>">
+        <p>
+            <label for="email">Е-пошта</label>
+            <input type="input" id="email" name="email" required>
+        </p>
+        <p>
+            <label for="password">Лозинка</label>
+            <input type="password" id="password" name="password" minlength="6" required>
+        </p>
+      
+        <button class="btn"> Логирај </button>
+        <!-- <hr> -->
+        <!-- <p> -->
+            <!-- to be fixed, it does not work -->
+            <!-- <a href="/reset-password">Ја заборави лозинката?</a> -->
+        <!-- </p> -->
+        <hr>
+        <p>
+            <a style="color: var(--color-blue-300);" href="/signup">Креирај нов корисник</a>
+        </p>
+
+    </form>
+    <p></p>
+
+</main>
+<!-- <main>
+    <form action="/login" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+
+</main> -->
+<%- include('../../shared/includes/footer')%>
+
+
