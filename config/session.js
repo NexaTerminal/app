@@ -5,13 +5,13 @@ function createSessionStore() {
     const MongoDBStore = mongoDbStore(expressSession);
   
     const store = new MongoDBStore({
-      uri: '  mongodb+srv://terminalnexa:terminalnexa2024@nexacluster.ddjqk.mongodb.net/?retryWrites=true&w=majority',
+      uri: 'mongodb+srv://terminalnexa:terminalnexa2024@nexacluster.ddjqk.mongodb.net/?retryWrites=true&w=majority',
       databaseName: 'nexa',
       collection: 'sessions'
     });
   
     return store;
-  }
+}
 
 function createSessionConfig() {
     return {
@@ -20,7 +20,6 @@ function createSessionConfig() {
         saveUninitialized: false,
         store: createSessionStore(),
         cookie: {
-            // maxAge: 2 * 24 * 60 * 60 * 1000
             maxAge: 16 * 60 * 60 * 1000
         }
     }
