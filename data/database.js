@@ -4,7 +4,7 @@ const MongoClient = monbodb.MongoClient;
 
 let database;
 
-const MONGODB_URI = "mongodb+srv://martinboshkoski:Mart1n990@cluster0.o8vyshm.mongodb.net/lb-clients";
+const MONGODB_URI = "mongodb+srv://terminalnexa:nexaterminal2024@nexacluster.ddjqk.mongodb.net/nexa";
 
 // ?retryWrites=true&w=majority/
 
@@ -12,8 +12,8 @@ const MONGODB_URI = "mongodb+srv://martinboshkoski:Mart1n990@cluster0.o8vyshm.mo
 // 'mongodb+srv://martinboshkoski:Mart1n990@cluster0.o8vyshm.mongodb.net/?retryWrites=true&w=majority/vp-clients'
 
 async function connectToDatabase() {
-    const client = await MongoClient.connect('mongodb://localhost:27017');
-    // const client = await MongoClient.connect(MONGODB_URI);
+    // const client = await MongoClient.connect('mongodb://localhost:27017');
+    const client = await MongoClient.connect(MONGODB_URI);
     database = client.db('nexa');
 }
 
