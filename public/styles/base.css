@@ -7,17 +7,11 @@
 html {
     font-family: 'Roboto', sans-serif;
 
-    /* --color-primary: #23282d;
-    --color-secondary: #96a2aa;
-    --color-accent: rgb(117, 116, 110);
-    --color-light-gray: #ECF0F1;
-    --color-text: #2C3E50; */
-
     --color-primary: #1f2e3d; /* Midnight Blue */
---color-secondary: #F8F9FA; /* Light Cream */
---color-accent: #5D6D7E; /* Soft Slate Accent */
---color-light-gray: #d4dadc; /* Light Gray */
---color-text: #1C2833; /* Dark Slate */
+    --color-secondary: #F8F9FA; /* Light Cream */
+    --color-accent: #5D6D7E; /* Soft Slate Accent */
+    --color-light-gray: #d4dadc; /* Light Gray */
+    --color-text: #1C2833; /* Dark Slate */
 
 
     --space-1: 0.25rem;
