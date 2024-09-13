@@ -130,6 +130,15 @@ async function getTerminationDueToPersonalReasons(req, res, next) {
     next(error);
   }
 }
+////////////////////////////////////////////////////////////////////////////////
+async function getGiftAgreement(req, res, next) {
+  try {
+    const agent = await Agent.getAgentByUid(req.session.uid);
+    res.render("users/clients/documents/gift-agreement", { agent });
+  } catch (error) {
+    next(error);
+  }
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // New methods added
@@ -207,4 +216,8 @@ module.exports = {
   getTerminationAgreement: getTerminationAgreement,
   getTerminationWarningLetter: getTerminationWarningLetter,
   getTerminationDueToPersonalReasons: getTerminationDueToPersonalReasons,
+
+  //obligations
+  getGiftAgreement:getGiftAgreement
+
 };

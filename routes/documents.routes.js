@@ -16,6 +16,8 @@ router.get('/documents/employment/termination-warning-letter', clientController.
 router.get('/documents/employment/termination-due-to-personal-reasons', clientController.getTerminationDueToPersonalReasons);
 
 
+//Obligation templates
+router.get('/documents/obligations/gift-agreement', clientController.getGiftAgreement);
 
 
 module.exports = router;
