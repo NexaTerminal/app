@@ -13,7 +13,7 @@ async function getDocuments(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     let clientName = agent.name;
-    res.render("users/clients/documents",{clientName});
+    res.render("users/clients/documents", { clientName });
   } catch (error) {
     next(error);
   }
@@ -24,12 +24,7 @@ async function getEmploymentAgreement(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     let clientName = agent.name;
-
-<<<<<<< HEAD
     res.render("users/clients/documents/employment/employment-agreement", { agent });
-=======
-    res.render("users/clients/documents/employment-agreement", { agent });
->>>>>>> origin/main
 
     ///Special templates for specific clients
     // Here, if we want to have special templates for specific clients, we could use an if/else condition
@@ -45,11 +40,7 @@ async function getEmploymentAgreement(req, res, next) {
 async function getEmploymentAnnexDuration(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
-<<<<<<< HEAD
     res.render("users/clients/documents/employment/annex-employment-agreement-duration", { agent });
-=======
-    res.render("users/clients/documents/annex-employment-agreement-duration", { agent });
->>>>>>> origin/main
   } catch (error) {
     next(error);
   }
@@ -60,11 +51,7 @@ async function getEmploymentAnnexSalary(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     let clientName = agent.name;
-<<<<<<< HEAD
     res.render("users/clients/documents/employment/annex-employment-agreement-salary", { agent, clientName });
-=======
-    res.render("users/clients/documents/annex-employment-agreement-salary", { agent, clientName });
->>>>>>> origin/main
   } catch (error) {
     next(error);
   }
@@ -75,11 +62,7 @@ async function getEmploymentAnnexWorkPosition(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     let clientName = agent.name;
-<<<<<<< HEAD
     res.render("users/clients/documents/employment/annex-employment-agreement-work-position", { agent, clientName });
-=======
-    res.render("users/clients/documents/annex-employment-agreement-work-position", { agent, clientName });
->>>>>>> origin/main
   } catch (error) {
     next(error);
   }
@@ -90,11 +73,7 @@ async function getAnnualLeaveDecision(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     let clientName = agent.name;
-<<<<<<< HEAD
     res.render("users/clients/documents/employment/annual-leave-decision", { agent, clientName });
-=======
-    res.render("users/clients/documents/annual-leave-decision", { agent, clientName });
->>>>>>> origin/main
   } catch (error) {
     next(error);
   }
@@ -105,11 +84,7 @@ async function getDisciplinaryMeasure(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     let clientName = agent.name;
-<<<<<<< HEAD
     res.render("users/clients/documents/employment/decision-for-disciplinary-measure", { agent, clientName });
-=======
-    res.render("users/clients/documents/decision-for-disciplinary-measure", { agent, clientName });
->>>>>>> origin/main
   } catch (error) {
     next(error);
   }
@@ -119,11 +94,7 @@ async function getDisciplinaryMeasure(req, res, next) {
 async function getDisciplinaryMeasureWarning(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
-<<<<<<< HEAD
     res.render("users/clients/documents/employment/decision-for-disciplinary-measure-warning", { agent });
-=======
-    res.render("users/clients/documents/decision-for-disciplinary-measure-warning", { agent });
->>>>>>> origin/main
   } catch (error) {
     next(error);
   }
@@ -133,11 +104,7 @@ async function getDisciplinaryMeasureWarning(req, res, next) {
 async function getTerminationAgreement(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
-<<<<<<< HEAD
     res.render("users/clients/documents/employment/termination-agreement", { agent });
-=======
-    res.render("users/clients/documents/termination-agreement", { agent });
->>>>>>> origin/main
   } catch (error) {
     next(error);
   }
@@ -147,11 +114,7 @@ async function getTerminationAgreement(req, res, next) {
 async function getTerminationWarningLetter(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
-<<<<<<< HEAD
     res.render("users/clients/documents/employment/termination-warning-letter", { agent });
-=======
-    res.render("users/clients/documents/termination-warning-letter", { agent });
->>>>>>> origin/main
   } catch (error) {
     next(error);
   }
@@ -161,20 +124,17 @@ async function getTerminationWarningLetter(req, res, next) {
 async function getTerminationDueToPersonalReasons(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
-<<<<<<< HEAD
     res.render("users/clients/documents/employment/termination-due-to-personal-reasons", { agent });
   } catch (error) {
     next(error);
   }
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 async function getGiftAgreement(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     res.render("users/clients/documents/obligations/gift-agreement", { agent });
-=======
-    res.render("users/clients/documents/termination-due-to-personal-reasons", { agent });
->>>>>>> origin/main
   } catch (error) {
     next(error);
   }
@@ -187,36 +147,32 @@ async function getMyDocuments(req, res, next) {
   const agent = await Agent.getAgentByUid(req.session.uid);
   let clientName = agent.name;
   try {
-    res.render("users/clients/my-documents", {clientName});  // Render the appropriate view
+    res.render("users/clients/my-documents", { clientName });  // Render the appropriate view
   } catch (error) {
     next(error);
   }
 }
-<<<<<<< HEAD
-////////////////////////////////////////////////////////////////////////////////
-=======
 
->>>>>>> origin/main
+////////////////////////////////////////////////////////////////////////////////
+
 async function getBusinessCalendar(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     let clientName = agent.name;
-    res.render("users/clients/business-calendar", {clientName});  // Render the appropriate view
+    res.render("users/clients/business-calendar", { clientName });  // Render the appropriate view
   } catch (error) {
     next(error);
   }
 }
-<<<<<<< HEAD
-////////////////////////////////////////////////////////////////////////////////
-=======
 
->>>>>>> origin/main
+////////////////////////////////////////////////////////////////////////////////
+
 async function requestedConsultation(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     let clientName = agent.name;
     // Logic to handle post request for consultation
-    res.send("Consultation requested", {clientName});  // Placeholder response
+    res.send("Consultation requested", { clientName });  // Placeholder response
   } catch (error) {
     next(error);
   }
@@ -227,7 +183,7 @@ async function getLhc(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     let clientName = agent.name;
-    res.render("users/clients/lhc", {clientName});
+    res.render("users/clients/lhc", { clientName });
   } catch (error) {
     next(error);
   }
@@ -238,7 +194,7 @@ async function getLegalUpdates(req, res, next) {
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     let clientName = agent.name;
-    res.render("users/clients/legal-updates", {clientName});
+    res.render("users/clients/legal-updates", { clientName });
   } catch (error) {
     next(error);
   }
@@ -264,11 +220,5 @@ module.exports = {
   getTerminationAgreement: getTerminationAgreement,
   getTerminationWarningLetter: getTerminationWarningLetter,
   getTerminationDueToPersonalReasons: getTerminationDueToPersonalReasons,
-<<<<<<< HEAD
-
-  //obligations
-  getGiftAgreement:getGiftAgreement
-
-=======
->>>>>>> origin/main
+  getGiftAgreement: getGiftAgreement
 };
