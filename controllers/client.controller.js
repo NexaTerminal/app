@@ -129,6 +129,23 @@ async function getTerminationDueToPersonalReasons(req, res, next) {
     next(error);
   }
 }
+//////
+async function getEmploymentTerminationDecision(req, res, next) {
+  try {
+    console.log('im here')
+    const agent = await Agent.getAgentByUid(req.session.uid);
+    res.render("users/clients/documents/employment/employment-termination-decision", { agent });
+  } catch (error) {
+    next(error);
+  }
+}
+
+
+
+
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 async function getGiftAgreement(req, res, next) {
@@ -220,5 +237,6 @@ module.exports = {
   getTerminationAgreement: getTerminationAgreement,
   getTerminationWarningLetter: getTerminationWarningLetter,
   getTerminationDueToPersonalReasons: getTerminationDueToPersonalReasons,
+  getEmploymentTerminationDecision:getEmploymentTerminationDecision,
   getGiftAgreement: getGiftAgreement
 };

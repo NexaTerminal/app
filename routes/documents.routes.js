@@ -14,6 +14,8 @@ router.get('/documents/employment/decision-for-disciplinary-measure-warning', cl
 router.get('/documents/employment/termination-agreement', clientController.getTerminationAgreement);
 router.get('/documents/employment/termination-warning-letter', clientController.getTerminationWarningLetter);
 router.get('/documents/employment/termination-due-to-personal-reasons', clientController.getTerminationDueToPersonalReasons);
+router.get('/documents/employment/termination-decision', clientController.getEmploymentTerminationDecision);
+
 
 
 //Obligation templates
