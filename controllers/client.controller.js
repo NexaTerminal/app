@@ -132,7 +132,6 @@ async function getTerminationDueToPersonalReasons(req, res, next) {
 //////
 async function getEmploymentTerminationDecision(req, res, next) {
   try {
-    console.log('im here')
     const agent = await Agent.getAgentByUid(req.session.uid);
     res.render("users/clients/documents/employment/employment-termination-decision", { agent });
   } catch (error) {
@@ -160,7 +159,6 @@ async function getGiftAgreement(req, res, next) {
 ////////////////////////////////////////////////////////////////////////////////
 // New methods added
 async function getMyDocuments(req, res, next) {
-  console.log('i getinto here')
   try {
     const agent = await Agent.getAgentByUid(req.session.uid);
     const clientName = agent.name;

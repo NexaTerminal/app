@@ -56,7 +56,6 @@ class Agent {
     }
 
     static async getAgentByUid(uid) {
-        console.log(`Looking for agent with UID: ${uid}`);
         let theAgentId;
         try {
             theAgentId = new ObjectId(uid);
