@@ -1,6 +1,5 @@
 <%- include('../../shared/includes/head', {pageTitle: 'Законски измени'})%>
 <link rel="stylesheet" href="/styles/base.css">
-<!-- <link rel="stylesheet" href="/styles/documents.css"> -->
 
 </head>
 <body>
@@ -8,9 +7,9 @@
 
 <main> 
     <section class="document-category">
-        <h2>Автоматизирани теркови на <%=clientName%></h2>
+        <h2>Автоматизирани теркови на <%= clientName %></h2>
         <div class="templates-grid">
-            <% for (let i = 0; i < 5; i++) { %>
+            <% for (var i = 0; i < 5; i++) { %>
                 <% if (templates[i]) { %>
                     <!-- Display existing template links -->
                     <a href="/documents/<%= templates[i].url %>" class="template-link">
@@ -18,26 +17,14 @@
                     </a>
                 <% } else { %>
                     <!-- Empty placeholder for missing templates -->
-                    <a href="#" class="template-link disabled">Текот <%=(i + 1)%></a>
+                    <a href="#" class="template-link disabled">Текот <%= (i + 1) %></a>
                 <% } %>
             <% } %>
         </div>
 
-        <!-- Display the form only if fewer than 5 templates exist -->
         <% if (templates.length < 5) { %>
             <h3>Додај нов терк</h3>
-            <form action="/upload-template" method="POST" enctype="multipart/form-data" class="template-upload-form">
-                <label for="templateName">Име на терк:</label>
-                <input type="text" id="templateName" name="templateName" required>
-
-                <label for="templateDescription">Опис на теркот:</label>
-                <textarea id="templateDescription" name="templateDescription" required></textarea>
-
-                <label for="templateFile">Избери .doc датотека:</label>
-                <input type="file" id="templateFile" name="templateFile" accept=".doc,.docx" required>
-
-                <button type="submit">Поднеси</button>
-            </form>
+            <!-- Form to add new templates -->
         <% } else { %>
             <p>Веќе имате максимален број на теркови (5). Ако сакате да замените терк, контактирајте не.</p>
         <% } %>

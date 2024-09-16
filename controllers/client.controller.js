@@ -159,16 +159,22 @@ async function getGiftAgreement(req, res, next) {
 
 ////////////////////////////////////////////////////////////////////////////////
 // New methods added
-
 async function getMyDocuments(req, res, next) {
-  const agent = await Agent.getAgentByUid(req.session.uid);
-  let clientName = agent.name;
+  console.log('i getinto here')
   try {
-    res.render("users/clients/my-documents", { clientName });  // Render the appropriate view
+    const agent = await Agent.getAgentByUid(req.session.uid);
+    const clientName = agent.name;
+    const templates = [
+      { url: 'template1', name: 'Template 1' },
+      { url: 'template2', name: 'Template 2' },
+      { url: 'template3', name: 'Template 3' }
+    ];
+    res.render("users/clients/my-documents", { clientName, templates });
   } catch (error) {
     next(error);
   }
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 
