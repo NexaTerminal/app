@@ -21,6 +21,10 @@ router.get('/documents/employment/termination-decision', clientController.getEmp
 //Obligation templates
 router.get('/documents/obligations/gift-agreement', clientController.getGiftAgreement);
 
+// Route to handle the document generation
+router.post('/generate-gift-agreement-doc', clientController.generateGiftAgreementDoc);
+
+
 
 module.exports = router;
 

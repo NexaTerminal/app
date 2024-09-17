@@ -3,50 +3,51 @@
 <head>
   <%- include('../../../../shared/includes/head', {pageTitle: 'Договор за дар на недвижен имот'})%>
   <link rel="stylesheet" href="/styles/base.css">
-  <link rel="stylesheet" href="/styles/client.css">
   <link rel="stylesheet" href="/styles/forms.css">
   <link rel="stylesheet" href="/styles/navigation.css">
-  <link rel="stylesheet" href="/styles/dropdown.css">
-  <link rel="stylesheet" href="/styles/tools.css">
   <link rel="stylesheet" href="/styles/documents.css">
-  <script src="/scripts/dropdown.js" defer></script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script src="/scripts/templates/gift-agreement.js" defer></script>
+
 </head>
 <body>
   <main>
+    <div style="display: grid; grid-template-columns: 1fr 2fr;">
+
     <div class="standard-template">
-      <div class="inputs-column">
-        <input type="text" placeholder="Место на имотот" id="propertyLocationTown">
-        <input type="date" placeholder="Датум на договорот" id="agreementDate">
-        <input type="text" placeholder="Име на дарувачот" id="givingParty">
-        <input type="text" placeholder="Адреса на дарувачот" id="givingPartyAddress">
-        <input type="text" placeholder="ЕМБГ на дарувачот" id="givingPartyPIN">
-        <input type="text" placeholder="Име на даропримачот" id="receivingParty">
-        <input type="text" placeholder="Адреса на даропримачот" id="receivingPartyAddress">
-        <input type="text" placeholder="ЕМБГ на даропримачот" id="receivingPartyPIN">
-        <input type="text" placeholder="Имотен лист број" id="propertySheetNumber">
-        <input type="text" placeholder="Кадастрска општина" id="cadasterMunicipality">
-        <input type="text" placeholder="Тип на имот" id="typeOfProperty">
-        <input type="text" placeholder="Број на парцела" id="parcelNumber">
-        <input type="text" placeholder="Адреса на имотот" id="propertyAddress">
-        <input type="text" placeholder="Број на зграда" id="buildingNumber">
-        <input type="text" placeholder="Намена на зграда" id="buildingType">
-        <input type="text" placeholder="Број на влез" id="entranceNumber">
-        <input type="text" placeholder="Кат" id="floor">
-        <input type="text" placeholder="Број" id="number">
-        <input type="text" placeholder="Површина во м2" id="size">
-        <input type="text" placeholder="Однос меѓу дарувачот и даропримачот (на пр. татко-син)" id="relationship">
-        <label for="mortgage">Има ли хипотека на имотот?</label>
-        <select id="mortgage">
-          <option value="no">Не</option>
-          <option value="yes">Да</option>
-        </select>
-        <button id="generateButton">Генерирај</button>
+      <form class="generate-gift-agreement-doc" action="/generate-gift-agreement-doc" method="POST">
+        <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>">
+        <input type="text" name="givingParty" placeholder="Име на дарувачот" id="givingParty" required>
+        <input type="text" name="givingPartyAddress" placeholder="Адреса на дарувачот" id="givingPartyAddress" required>
+        <input type="text" name="givingPartyPIN" placeholder="ЕМБГ на дарувачот" id="givingPartyPIN" required>
+        
+        <input type="text" name="receivingParty" placeholder="Име на даропримачот" id="receivingParty" required>
+        <input type="text" name="receivingPartyAddress" placeholder="Адреса на даропримачот" id="receivingPartyAddress" required>
+        <input type="text" name="receivingPartyPIN" placeholder="ЕМБГ на даропримачот" id="receivingPartyPIN" required>
+
+        <input type="text" name="propertyLocationTown" placeholder="Место на имотот" id="propertyLocationTown" required>
+        <input type="date" name="agreementDate" placeholder="Датум на договорот" id="agreementDate" required>
+
+        <input type="text" name="propertySheetNumber" placeholder="Имотен лист број" id="propertySheetNumber" required>
+        <input type="text" name="cadasterMunicipality" placeholder="Катастарска општина" id="cadasterMunicipality" required>
+        <input type="text" name="typeOfProperty" placeholder="Тип на имот" id="typeOfProperty" required>
+        <input type="text" name="parcelNumber" placeholder="Број на парцела" id="parcelNumber" required>
+        <input type="text" name="propertyAddress" placeholder="Адреса на имотот" id="propertyAddress" required>
+        <input type="text" name="buildingNumber" placeholder="Број на зграда" id="buildingNumber" required>
+        <input type="text" name="buildingType" placeholder="Намена на зграда" id="buildingType" required>
+        <input type="text" name="entranceNumber" placeholder="Број на влез" id="entranceNumber" required>
+        <input type="text" name="floor" placeholder="Кат" id="floor" required>
+        <input type="text" name="number" placeholder="Број на имот" id="number" required>
+        <input type="text" name="size" placeholder="Површина во м2" id="size" required>
+        <button type="submit" id="generateButton">Генерирај</button>
+      </form>
       </div>
       <div class="presentation-column">
         <p>Визуелна презентација на содржината.</p>
       </div>
+    </div>
+
     </div>
   </main>
   <%- include('../../../../shared/includes/footer')%>
