@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const clientController = require('../controllers/client.controller')
+const giftController = require('../controllers/documents/obligations/gift.agreement.controller')
+
 
 //Employment templates
 router.get('/documents/employment/contract', clientController.getEmploymentAgreement);
@@ -18,11 +20,10 @@ router.get('/documents/employment/termination-decision', clientController.getEmp
 
 
 
-//Obligation templates
-router.get('/documents/obligations/gift-agreement', clientController.getGiftAgreement);
-
-// Route to handle the document generation
-router.post('/generate-gift-agreement-doc', clientController.generateGiftAgreementDoc);
+////Obligation templates
+//gift agreement
+router.get('/documents/obligations/gift-agreement', giftController.getGiftAgreement);
+router.post('/generate-gift-agreement-doc', giftController.generateGiftAgreementDoc);
 
 
 
