@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const numberField = document.getElementById("number");
   const sizeField = document.getElementById("size");
 
-  const previewElement = document.querySelector(".presentation-column p");
+  const previewElement = document.getElementById("preview-content");
 
   // Function to update the live preview
   function updateLivePreview() {
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const receivingPartyPIN = receivingPartyPINField.value || "[ЕМБГ на даропримачот]";
 
     const propertyLocation = propertyLocationField.value || "[Место на имотот]";
-    const agreementDate = agreementDateField.value ? moment(agreementDateField.value).format('DD-MM-YYYY') : "[Датум на договорот]";
+    const agreementDate = agreementDateField.value ? moment(agreementDateField.value).format('DD.MM.YYYY') : "[Датум на договорот]";
     
     const propertySheetNumber = propertySheetNumberField.value || "[Имотен лист број]";
     const cadasterMunicipality = cadasterMunicipalityField.value || "[Катастарска општина]";
@@ -52,48 +52,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Update the preview with live data
     previewElement.innerHTML = `
-      <strong>Договор за подарок:</strong><br>
-      <strong>Дарувач:</strong> ${givingParty}, со живеалиште на ул. ${givingPartyAddress}, со ЕМБГ ${givingPartyPIN}.<br>
-      <strong>Даропримач:</strong> ${receivingParty}, со живеалиште на ул. ${receivingPartyAddress}, со ЕМБГ ${receivingPartyPIN}.<br>
-      <strong>Место на имотот:</strong> ${propertyLocation}.<br>
-      <strong>Датум на договорот:</strong> ${agreementDate}.<br>
-      <strong>Имотен лист број:</strong> ${propertySheetNumber}.<br>
-      <strong>Катастарска општина:</strong> ${cadasterMunicipality}.<br>
-      <strong>Тип на имот:</strong> ${typeOfProperty}.<br>
-      <strong>Парцелен број:</strong> ${parcelNumber}.<br>
-      <strong>Адреса:</strong> ${propertyAddress}.<br>
-      <strong>Број на зграда:</strong> ${buildingNumber}.<br>
-      <strong>Намена на зграда:</strong> ${buildingType}.<br>
-      <strong>Број на влез:</strong> ${entranceNumber}.<br>
-      <strong>Кат:</strong> ${floor}.<br>
-      <strong>Број на имот:</strong> ${number}.<br>
-      <strong>Површина во м2:</strong> ${size}.
+      <strong>Договор за дар на недвижен имот:</strong><br><br>
+      <strong>Склучен во:</strong> ${propertyLocation}, на ден ${agreementDate}, помеѓу:<br><br>
+      <strong>1. Дарувач:</strong> ${givingParty}, со живеалиште на ул. ${givingPartyAddress}, со ЕМБГ ${givingPartyPIN}; и<br>
+      <strong>2. Даропримач:</strong> ${receivingParty}, со живеалиште на ул. ${receivingPartyAddress}, со ЕМБГ ${receivingPartyPIN}.<br><br>
+      <strong>Имотни информации:</strong><br>
+      - Имотен лист број: ${propertySheetNumber}<br>
+      - Катастарска општина: ${cadasterMunicipality}<br>
+      - Тип на имот: ${typeOfProperty}<br>
+      - Број на парцела: ${parcelNumber}<br>
+      - Адреса на имотот: ${propertyAddress}<br>
+      - Број на зграда: ${buildingNumber}<br>
+      - Намена на зграда: ${buildingType}<br>
+      - Број на влез: ${entranceNumber}<br>
+      - Кат: ${floor}<br>
+      - Број на имот: ${number}<br>
+      - Површина во м2: ${size}
     `;
   }
 
   // Attach event listeners to all form fields
-  givingPartyField.addEventListener("input", updateLivePreview);
-  givingPartyAddressField.addEventListener("input", updateLivePreview);
-  givingPartyPINField.addEventListener("input", updateLivePreview);
+  const formFields = [
+    givingPartyField,
+    givingPartyAddressField,
+    givingPartyPINField,
+    receivingPartyField,
+    receivingPartyAddressField,
+    receivingPartyPINField,
+    propertyLocationField,
+    agreementDateField,
+    propertySheetNumberField,
+    cadasterMunicipalityField,
+    typeOfPropertyField,
+    parcelNumberField,
+    propertyAddressField,
+    buildingNumberField,
+    buildingTypeField,
+    entranceNumberField,
+    floorField,
+    numberField,
+    sizeField
+  ];
 
-  receivingPartyField.addEventListener("input", updateLivePreview);
-  receivingPartyAddressField.addEventListener("input", updateLivePreview);
-  receivingPartyPINField.addEventListener("input", updateLivePreview);
-
-  propertyLocationField.addEventListener("input", updateLivePreview);
-  agreementDateField.addEventListener("input", updateLivePreview);
-
-  propertySheetNumberField.addEventListener("input", updateLivePreview);
-  cadasterMunicipalityField.addEventListener("input", updateLivePreview);
-  typeOfPropertyField.addEventListener("input", updateLivePreview);
-  parcelNumberField.addEventListener("input", updateLivePreview);
-  propertyAddressField.addEventListener("input", updateLivePreview);
-  buildingNumberField.addEventListener("input", updateLivePreview);
-  buildingTypeField.addEventListener("input", updateLivePreview);
-  entranceNumberField.addEventListener("input", updateLivePreview);
-  floorField.addEventListener("input", updateLivePreview);
-  numberField.addEventListener("input", updateLivePreview);
-  sizeField.addEventListener("input", updateLivePreview);
+  formFields.forEach(field => {
+    field.addEventListener("input", updateLivePreview);
+  });
 
   // Initial preview on page load
   updateLivePreview();

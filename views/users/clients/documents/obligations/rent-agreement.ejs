@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <%- include('../../../../shared/includes/head', {pageTitle: 'Договор за закуп на недвижен имот'}) %>
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/navigation.css">
+  <link rel="stylesheet" href="/styles/documents.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  
+  <!-- Define clientName, clientAddress, and clientPIN -->
+  <script>
+    const clientName = "<%= clientName %>";
+    const clientAddress = "<%= clientAddress %>";
+    const clientPIN = "<%= clientPIN %>";
+  </script>
+  
+  <!-- Include steps.js before rent-agreement.js -->
+  <script src="/scripts/templates/steps.js" defer></script>
+  <script src="/scripts/templates/obligations/rent-agreement.js" defer></script>
+</head>
+<body>
+  <main>
+    <!-- User role selection -->
+
+    <section>
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      <div class="progress-label">
+        <span id="progress-label">0%</span>
+      </div>
+    </section>
+    <div class="form-container" style="display: grid; grid-template-columns: 1fr 2fr;">
+      <div class="standard-template">
+          <form class="generate-rent-agreement-doc" action="/generate-rent-agreement-doc" method="POST">
+          <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+          <!-- Step 1: Landlord Information -->
+          <div class="user-role-selection" style="display: grid; grid-template-columns: 1fr 4fr; width: 100%; padding-bottom: 15px; text-align: left; gap: 6px;">
+            <input type="radio" name="userRole" value="landlord" id="roleLandlord" style="width: 40%;"> <%=clientName %> е закуподавач
+            <input type="radio" name="userRole" value="lessee" id="roleLessee" style="width: 40%;"> <%=clientName %> е закупец
+        </div>
+          <div class="step active" id="step-1">
+            <h3>Информации за закуподавачот</h3>
+            <input type="text" name="landlordName" placeholder="Име на закуподавачот" id="landlordName" required>
+            <input type="text" name="landlordAddress" placeholder="Адреса на закуподавачот" id="landlordAddress" required>
+            <input type="text" name="landlordPIN" placeholder="ЕМБГ на закуподавачот" id="landlordPIN" required>
+            <button type="button" class="next-step">Следно</button>
+          </div>
+          <!-- Step 2: Lessee Information -->
+          <div class="step" id="step-2">
+            <h3>Информации за закупецот</h3>
+            <input type="text" name="lesseeName" placeholder="Име на закупецот" id="lesseeName" required>
+            <input type="text" name="lesseeAddress" placeholder="Адреса на закупецот" id="lesseeAddress" required>
+            <input type="text" name="lesseePIN" placeholder="ЕМБГ на закупецот" id="lesseePIN" required>
+            <button type="button" class="next-step">Следно</button>
+          </div>
+          <!-- Step 3: Property Information -->
+          <div class="step" id="step-3">
+            <h3>Информации за недвижниот имот</h3>
+            <input type="date" name="date" placeholder="Датум на договорот" id="agreementDate" required>
+            <input type="text" name="propertyCity" placeholder="Град на имотот" id="propertyCity" required>
+            <input type="text" name="propertyAddress" placeholder="Адреса на имотот" id="propertyAddress" required>
+            <input type="text" name="propertyParcelNumber" placeholder="Број на парцела" id="propertyParcelNumber" required>
+            <input type="text" name="propertySheetNumber" placeholder="Имотен лист број" id="propertySheetNumber" required>
+            <input type="text" name="propertyParcelLocation" placeholder="Катастарска општина" id="propertyParcelLocation" required>
+            <input type="text" name="propertySize" placeholder="Квадратура на имотот (м2)" id="propertySize" required>
+            <button type="button" class="next-step">Следно</button>
+          </div>
+          <!-- Step 4: Payment Information -->
+          <div class="step" id="step-4">
+            <h3>Информации за плаќање</h3>
+            <input type="text" name="rentAmount" placeholder="Износ на месечна закупнина (денари)" id="rentAmount" required>
+            <input type="text" name="landlordBankAccount" placeholder="Трансакциска сметка на закуподавачот" id="landlordBankAccount" required>
+            <input type="text" name="landlordBank" placeholder="Банка на закуподавачот" id="landlordBank" required>
+            <button type="submit" id="generateButton">Генерирај</button>
+          </div>
+        </form>
+      </div>
+      <!-- Live preview section -->
+      <div class="preview-container">
+        <p>Визуелна презентација на содржината.</p>
+        <div class="presentation-column">
+          <p id="preview-content"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <%- include('../../../../shared/includes/footer') %>
+</body>
+</html>

@@ -3,6 +3,7 @@ const router = express.Router();
 
 const clientController = require('../controllers/client.controller')
 const giftController = require('../controllers/documents/obligations/gift.agreement.controller')
+const rentAgreementController = require('../controllers/documents/obligations/rent.agreement.controller')
 
 
 //Employment templates
@@ -25,6 +26,8 @@ router.get('/documents/employment/termination-decision', clientController.getEmp
 router.get('/documents/obligations/gift-agreement', giftController.getGiftAgreement);
 router.post('/generate-gift-agreement-doc', giftController.generateGiftAgreementDoc);
 
+router.get('/documents/generate-rent-agreement', rentAgreementController.getRentAgreement);
+router.post('/generate-rent-agreement-doc', rentAgreementController.generateRentAgreementDoc);
 
 
 module.exports = router;

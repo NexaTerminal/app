@@ -9,7 +9,8 @@ const Agent = require('../../../models/agent.model');
 async function getGiftAgreement(req, res, next) {
     try {
       const agent = await Agent.getAgentByUid(req.session.uid);
-      res.render("users/clients/documents/obligations/gift-agreement", { agent });
+      const clientName = agent.name
+      res.render("users/clients/documents/obligations/gift-agreement", {clientName:clientName  });
     } catch (error) {
       next(error);
     }
