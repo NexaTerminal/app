@@ -69,7 +69,31 @@
           </div>
           <!-- Step 4: Payment Information -->
           <div class="step" id="step-4">
-            <h3>Информации за плаќање</h3>
+            <h3>Информации за закупот</h3>
+            <div>
+              <label>Времетраење:</label><br>
+              <input type="radio" name="durationType" id="undefinedDuration" value="1" checked>
+              <label for="undefinedDuration">Неопределено времетраење</label><br>
+          
+              <input type="radio" name="durationType" id="definedDuration" value="2">
+              <label for="definedDuration">Определено времетраење</label>
+            </div>
+            <!-- Date input field, initially hidden -->
+            <div id="dateField" style="display: none;">
+              <label for="endDate">Определете кога договорот треба да заврши:</label>
+              <input type="date" id="endDate" name="endDate">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 15fr;">
+              <input type="radio" name="equipment" value="празен (без опрема и ствари)">
+              <input type="radio" name="equipment" value="опремен со ствари">
+            </div>
+            <p>Закупнина</p>
+            <div style="display: grid; grid-template-columns: 1fr 15fr;">
+              <input type="radio" name="rentTime" value="најдоцна до 5тиот ден на месецот, за тековниот месец.">најдоцна до 5тиот ден на месецот, за тековниот месец
+              <input type="radio" name="rentTime" value="најдоцна до 15тиот ден на месецот, за тековниот месец.">најдоцна до 15тиот ден на месецот, за тековниот месец
+              <input type="radio" name="rentTime" value="најдоцна до 5тиот ден на месецот, за претходниот месец.">најдоцна до 5тиот ден на месецот, за претходниот месец
+              <input type="radio" name="rentTime" value="најдоцна до 15тиот ден на месецот, за претходниот месец.">најдоцна до 15тиот ден на месецот, за претходниот месец
+            </div>
             <input type="text" name="rentAmount" placeholder="Износ на месечна закупнина (денари)" id="rentAmount" required>
             <input type="text" name="landlordBankAccount" placeholder="Трансакциска сметка на закуподавачот" id="landlordBankAccount" required>
             <input type="text" name="landlordBank" placeholder="Банка на закуподавачот" id="landlordBank" required>
@@ -88,4 +112,25 @@
   </main>
   <%- include('../../../../shared/includes/footer') %>
 </body>
+<script>
+  // JavaScript code to show/hide dateField based on selection
+  const undefinedDurationRadio = document.getElementById('undefinedDuration');
+  const definedDurationRadio = document.getElementById('definedDuration');
+  const dateField = document.getElementById('dateField');
+
+  function handleDurationChange() {
+    if (definedDurationRadio.checked) {
+      dateField.style.display = 'block';
+    } else {
+      dateField.style.display = 'none';
+    }
+  }
+
+  // Attach event listeners
+  undefinedDurationRadio.addEventListener('change', handleDurationChange);
+  definedDurationRadio.addEventListener('change', handleDurationChange);
+
+  // Initial call to set the correct display
+  handleDurationChange();
+</script>
 </html>

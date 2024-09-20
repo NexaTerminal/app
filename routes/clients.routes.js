@@ -13,6 +13,10 @@ router.get('/legal-updates', clientController.getLegalUpdates);
 
 router.get('/business-calendar', clientController.getBusinessCalendar);
 
+router.get('/webinars', clientController.getWebinars);
+
+router.get('/education', clientController.getEducation);
+
 
 router.post('/requested-consultation', clientController.requestedConsultation)
 

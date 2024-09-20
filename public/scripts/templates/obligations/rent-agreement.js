@@ -153,8 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <p style="text-align: center;"><strong>ДОГОВОР </strong></p>
     <p style="text-align: center;"><strong>за закуп на недвижен имот</strong></p><br>
     <p style="text-align: center;"><strong>Член 1</strong></p><br>
-    Предмет на овој договор е закуп на недвижен имот, а кој се наоѓа во ${propertyCity} на ул. ${propertyAddress}, лоциран на КП ${propertyParcelNumber} а запишан Имотен лист број ${propertySheetNumber} за КО ${propertyParcelLocation}, а кој се состои од:<br>
-    - Помошни простории, со квадратура од ${propertySize} м2<br>
+    Предмет на овој договор е закуп на недвижен имот, а кој се наоѓа во ${propertyCity} на ул. ${propertyAddress}, лоциран на КП ${propertyParcelNumber} а запишан Имотен лист број ${propertySheetNumber} за КО ${propertyParcelLocation}, со квадратура од ${propertySize} м2<br>
     Недвижниот имот опишан во ставот 1 од овој член се издава целосно празен.<br>
     Закуподавачот изјавува дека предметната недвижност не е оптоварена со хипотека до денот на потпишувањето на овој договор.<br>
     <p style="text-align: center;"><strong>Член 2</strong></p><br>

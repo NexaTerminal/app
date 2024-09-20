@@ -203,6 +203,28 @@ async function getLegalUpdates(req, res, next) {
     next(error);
   }
 }
+////////////////////////////////////////////////////////////////////////////////
+async function getWebinars(req, res, next) {
+  try {
+    const agent = await Agent.getAgentByUid(req.session.uid);
+    let clientName = agent.name;
+    res.render("users/clients/webinars", { clientName });
+  } catch (error) {
+    next(error);
+  }
+}
+////////////////////////////////////////////////////////////////////////////////
+async function getEducation(req, res, next) {
+  try {
+    const agent = await Agent.getAgentByUid(req.session.uid);
+    let clientName = agent.name;
+    res.render("users/clients/education", { clientName });
+  } catch (error) {
+    next(error);
+  }
+}
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Final module.exports with added methods
@@ -225,4 +247,6 @@ module.exports = {
   getTerminationWarningLetter: getTerminationWarningLetter,
   getTerminationDueToPersonalReasons: getTerminationDueToPersonalReasons,
   getEmploymentTerminationDecision:getEmploymentTerminationDecision,
+  getWebinars:getWebinars, 
+  getEducation:getEducation
 };

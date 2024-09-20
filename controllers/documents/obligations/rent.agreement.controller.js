@@ -60,7 +60,23 @@ async function generateRentAgreementDoc(req, res, next) {
       rentAmount,
       landlordBankAccount,
       landlordBank,
+      equipment,
+      durationType,
+      endDate,
+      rentTime,
     } = req.body;
+
+    let agreementDurationText;
+
+    if (durationType === '1') {
+      agreementDurationText = 'Овој Договор за закуп се склучува на неопределено време.';
+    } else if (durationType === '2') {
+      if (!endDate || endDate.trim() === '') {
+        return res.status(400).send('End date is required for defined duration.');
+      }
+      const formattedEndDate = moment(endDate).format('DD.MM.YYYY');
+      agreementDurationText = `Овој Договор за закуп се склучува на определено време до ${formattedEndDate}.`;
+    }
 
     // Create the document
     const doc = new Document({
@@ -128,32 +144,32 @@ async function generateRentAgreementDoc(req, res, next) {
               alignment: AlignmentType.JUSTIFIED,
               children: [
                 new TextRun(
-                  `Предмет на овој договор е закуп на недвижен имот, а кој се наоѓа во ${propertyCity} на ул. ${propertyAddress}, лоциран на КП ${propertyParcelNumber} а запишан Имотен лист број ${propertySheetNumber} за КО ${propertyParcelLocation}, а кој се состои од:`
+                  `Предмет на овој договор е закуп на недвижен имот, а кој се наоѓа во ${propertyCity} на ул. ${propertyAddress}, лоциран на КП ${propertyParcelNumber} а запишан Имотен лист број ${propertySheetNumber} за КО ${propertyParcelLocation}.`
                 ),
               ],
             }),
-            new Paragraph({
-              alignment: AlignmentType.JUSTIFIED,
-              children: [
-                new TextRun(`- _____________, со квадратура од ${propertySize} м2`),
-              ],
-            }),
-            new Paragraph({
-              alignment: AlignmentType.JUSTIFIED,
-              children: [
-                new TextRun(
-                  `Недвижниот имот опишан во ставот 1 од овој член се издава целосно празен / опремен со ____________.`
-                ),
-              ],
-            }),
+            // new Paragraph({
+            //   alignment: AlignmentType.JUSTIFIED,
+            //   children: [
+            //     new TextRun(`- _____________, со квадратура од ${propertySize} м2`),
+            //   ],
+            // }),
             new Paragraph({
               alignment: AlignmentType.JUSTIFIED,
               children: [
                 new TextRun(
-                  `Закуподавачот изјавува дека предметната недвижност ___________ //не// е оптоварена со хипотека до денот на потпишувањето на овој договор.`
+                  `Недвижниот имот опишан во ставот 1 од овој член се издава ${equipment}.`
                 ),
               ],
             }),
+            // new Paragraph({
+            //   alignment: AlignmentType.JUSTIFIED,
+            //   children: [
+            //     new TextRun(
+            //       `Закуподавачот изјавува дека предметната недвижност ___________ //не// е оптоварена со хипотека до денот на потпишувањето на овој договор.`
+            //     ),
+            //   ],
+            // }),
 
             // Article 2
             new Paragraph({
@@ -164,7 +180,7 @@ async function generateRentAgreementDoc(req, res, next) {
             new Paragraph({
               alignment: AlignmentType.JUSTIFIED,
               children: [
-                new TextRun(`Овој Договор за закуп се склучува на ////не///определено време.`),
+                new TextRun(`${agreementDurationText}`),
               ],
             }),
 
@@ -186,7 +202,7 @@ async function generateRentAgreementDoc(req, res, next) {
               alignment: AlignmentType.JUSTIFIED,
               children: [
                 new TextRun(
-                  `Закупнината ќе се плаќа во период од //////1 (први) до 5 (петти)////// во месецот за тековниот месец.`
+                  `Закупнината ќе се плаќа ${rentTime}.`
                 ),
               ],
             }),
