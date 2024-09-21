@@ -7,44 +7,42 @@
   <link rel="stylesheet" href="/styles/navigation.css">
   <link rel="stylesheet" href="/styles/documents.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-  
   <!-- Define clientName, clientAddress, and clientPIN -->
   <script>
     const clientName = "<%= clientName %>";
     const clientAddress = "<%= clientAddress %>";
     const clientPIN = "<%= clientPIN %>";
   </script>
-  
   <!-- Include steps.js before rent-agreement.js -->
   <script src="/scripts/templates/steps.js" defer></script>
   <script src="/scripts/templates/obligations/rent-agreement.js" defer></script>
 </head>
 <body>
   <main>
-    <!-- User role selection -->
-
+    <!-- Progress Bar Section -->
     <section>
       <div class="progress-bar">
         <div class="progress" id="progress"></div>
       </div>
       <div class="progress-label">
-        <span id="progress-label">0%</span>
+        <span id="progress-label">0% Завршен</span>
       </div>
     </section>
     <div class="form-container" style="display: grid; grid-template-columns: 1fr 2fr;">
       <div class="standard-template">
-          <form class="generate-rent-agreement-doc" action="/generate-rent-agreement-doc" method="POST">
+        <form class="generate-rent-agreement-doc" action="/generate-rent-agreement-doc" method="POST">
           <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-          <!-- Step 1: Landlord Information -->
-          <div class="user-role-selection" style="display: grid; grid-template-columns: 1fr 4fr; width: 100%; padding-bottom: 15px; text-align: left; gap: 6px;">
-            <input type="radio" name="userRole" value="landlord" id="roleLandlord" style="width: 40%;"> <%=clientName %> е закуподавач
-            <input type="radio" name="userRole" value="lessee" id="roleLessee" style="width: 40%;"> <%=clientName %> е закупец
-        </div>
+          <!-- Step 1: User Role Selection and Landlord Information -->
           <div class="step active" id="step-1">
+            <div class="user-role-selection" style="display: grid; grid-template-columns: 1fr 4fr; width: 100%; padding-bottom: 15px; text-align: left; gap: 6px;">
+              <input type="radio" name="userRole" value="landlord" id="roleLandlord" style="width: 40%;"> <%=clientName %> е закуподавач
+              <input type="radio" name="userRole" value="lessee" id="roleLessee" style="width: 40%;"> <%=clientName %> е закупец
+            </div>
             <h3>Информации за закуподавачот</h3>
             <input type="text" name="landlordName" placeholder="Име на закуподавачот" id="landlordName" required>
             <input type="text" name="landlordAddress" placeholder="Адреса на закуподавачот" id="landlordAddress" required>
             <input type="text" name="landlordPIN" placeholder="ЕМБГ на закуподавачот" id="landlordPIN" required>
+            <br>
             <button type="button" class="next-step">Следно</button>
           </div>
           <!-- Step 2: Lessee Information -->
@@ -53,28 +51,39 @@
             <input type="text" name="lesseeName" placeholder="Име на закупецот" id="lesseeName" required>
             <input type="text" name="lesseeAddress" placeholder="Адреса на закупецот" id="lesseeAddress" required>
             <input type="text" name="lesseePIN" placeholder="ЕМБГ на закупецот" id="lesseePIN" required>
+            <br>
+            <button type="button" class="prev-step">Назад</button>
             <button type="button" class="next-step">Следно</button>
           </div>
           <!-- Step 3: Property Information -->
           <div class="step" id="step-3">
             <h3>Информации за недвижниот имот</h3>
-            <input type="date" name="date" placeholder="Датум на договорот" id="agreementDate" required>
             <input type="text" name="propertyCity" placeholder="Град на имотот" id="propertyCity" required>
             <input type="text" name="propertyAddress" placeholder="Адреса на имотот" id="propertyAddress" required>
             <input type="text" name="propertyParcelNumber" placeholder="Број на парцела" id="propertyParcelNumber" required>
             <input type="text" name="propertySheetNumber" placeholder="Имотен лист број" id="propertySheetNumber" required>
             <input type="text" name="propertyParcelLocation" placeholder="Катастарска општина" id="propertyParcelLocation" required>
             <input type="text" name="propertySize" placeholder="Квадратура на имотот (м2)" id="propertySize" required>
+            <div style="display: grid; grid-template-columns: 1fr 15fr; text-align: left;">
+              <input type="radio" name="equipment" value="празен (без опрема и ствари)">
+              <label style="margin-left: 15px;">празен (без опрема и ствари)</label>
+              <input type="radio" name="equipment" value="опремен со ствари">
+              <label style="margin-left: 15px;">опремен со ствари</label>
+            </div>
+            <br>
+            <button type="button" class="prev-step">Назад</button>
             <button type="button" class="next-step">Следно</button>
           </div>
           <!-- Step 4: Payment Information -->
           <div class="step" id="step-4">
             <h3>Информации за закупот</h3>
-            <div>
-              <label>Времетраење:</label><br>
+            <p>Ден на склучување на закупот:</p>
+            <input type="date" name="date" placeholder="Датум на договорот" id="agreementDate" required>
+            <hr>
+            <p>Времетраење:</p>
+            <div style="display: grid; grid-template-columns: 1fr 8fr 1fr 8fr">
               <input type="radio" name="durationType" id="undefinedDuration" value="1" checked>
-              <label for="undefinedDuration">Неопределено времетраење</label><br>
-          
+              <label for="undefinedDuration">Неопределено времетраење</label>
               <input type="radio" name="durationType" id="definedDuration" value="2">
               <label for="definedDuration">Определено времетраење</label>
             </div>
@@ -83,25 +92,31 @@
               <label for="endDate">Определете кога договорот треба да заврши:</label>
               <input type="date" id="endDate" name="endDate">
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 15fr;">
-              <input type="radio" name="equipment" value="празен (без опрема и ствари)">
-              <input type="radio" name="equipment" value="опремен со ствари">
-            </div>
+            <hr>
             <p>Закупнина</p>
-            <div style="display: grid; grid-template-columns: 1fr 15fr;">
-              <input type="radio" name="rentTime" value="најдоцна до 5тиот ден на месецот, за тековниот месец.">најдоцна до 5тиот ден на месецот, за тековниот месец
-              <input type="radio" name="rentTime" value="најдоцна до 15тиот ден на месецот, за тековниот месец.">најдоцна до 15тиот ден на месецот, за тековниот месец
-              <input type="radio" name="rentTime" value="најдоцна до 5тиот ден на месецот, за претходниот месец.">најдоцна до 5тиот ден на месецот, за претходниот месец
-              <input type="radio" name="rentTime" value="најдоцна до 15тиот ден на месецот, за претходниот месец.">најдоцна до 15тиот ден на месецот, за претходниот месец
+            <p>Време на исплата:</p>
+            <div style="display: grid; grid-template-columns: 1fr 15fr; text-align: left;">
+              <input type="radio" name="rentTime" value="најдоцна до 5тиот ден на месецот, за тековниот месец." > 
+              <label style="margin-left: 15px;" for="rentTime">до 5тиот ден на месецот, за тековниот месец</label>
+              <input type="radio" name="rentTime" value="најдоцна до 15тиот ден на месецот, за тековниот месец."> 
+              <label style="margin-left: 15px;" for="rentTime">до 15тиот ден на месецот, за тековниот месец</label>
+              <input type="radio" name="rentTime" value="најдоцна до 5тиот ден на месецот, за претходниот месец."> 
+              <label style="margin-left: 15px;" for="rentTime">до 5тиот ден на месецот, за претходниот месец</label>
+              <input type="radio" name="rentTime" value="најдоцна до 15тиот ден на месецот, за претходниот месец."> 
+              <label style="margin-left: 15px;" for="rentTime">до 15тиот ден на месецот, за претходниот месец</label>
             </div>
+            <hr>
             <input type="text" name="rentAmount" placeholder="Износ на месечна закупнина (денари)" id="rentAmount" required>
             <input type="text" name="landlordBankAccount" placeholder="Трансакциска сметка на закуподавачот" id="landlordBankAccount" required>
             <input type="text" name="landlordBank" placeholder="Банка на закуподавачот" id="landlordBank" required>
+            <br>
+            <hr>
+            <button type="button" class="prev-step">Назад</button>
             <button type="submit" id="generateButton">Генерирај</button>
           </div>
         </form>
       </div>
-      <!-- Live preview section -->
+      <!-- Live Preview Section -->
       <div class="preview-container">
         <p>Визуелна презентација на содржината.</p>
         <div class="presentation-column">

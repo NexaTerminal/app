@@ -310,7 +310,7 @@ async function generateRentAgreementDoc(req, res, next) {
             new Paragraph({
               alignment: AlignmentType.CENTER,
               spacing: { before: 200, before: 200, after: 200 },
-              children: [new TextRun({ text: "Член 11", bold: true })],
+              children: [new TextRun({ text: "Член 9", bold: true })],
             }),
             new Paragraph({
               alignment: AlignmentType.JUSTIFIED,
@@ -333,7 +333,7 @@ async function generateRentAgreementDoc(req, res, next) {
             new Paragraph({
               alignment: AlignmentType.CENTER,
               spacing: { before: 200, before: 200, after: 200 },
-              children: [new TextRun({ text: "Член 12", bold: true })],
+              children: [new TextRun({ text: "Член 10", bold: true })],
             }),
             new Paragraph({
               alignment: AlignmentType.JUSTIFIED,
