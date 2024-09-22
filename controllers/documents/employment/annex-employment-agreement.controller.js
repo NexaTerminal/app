@@ -33,9 +33,9 @@ async function generateAnnexEmploymentAgreementDoc(req, res, next) {
     // Extract values from the form (req.body)
     const {
       companyName,
-      companyAddress,
-      companyNumber,
-      companyManager,
+      clientAddress,
+      clientPIN,
+      clientManager,
       employeeName,
       employeeAddress,
       employeePIN,
@@ -44,6 +44,7 @@ async function generateAnnexEmploymentAgreementDoc(req, res, next) {
       endDate,
       changedArticle,
     } = req.body;
+
 
     // Format dates
     const formattedAnnexDate = moment(annexDate).format('DD.MM.YYYY');
@@ -66,7 +67,7 @@ async function generateAnnexEmploymentAgreementDoc(req, res, next) {
             new Paragraph({
               alignment: AlignmentType.JUSTIFIED,
               children: [
-                new TextRun(`1. ${companyName} со седиште на ул. ${companyAddress}, Република Северна Македонија, со ЕМБС ${companyNumber}, претставувано од ${companyManager}, како работодавач (во понатамошниот текст: Работодавачот); и`),
+                new TextRun(`1. ${companyName} со седиште на ул. ${clientAddress}, Република Северна Македонија, со ЕМБС ${clientPIN}, претставувано од ${clientManager}, како работодавач (во понатамошниот текст: Работодавачот); и`),
               ],
             }),
             new Paragraph({
