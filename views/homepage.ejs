@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <script src="/scripts/dashboard.js" defer></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
 
   <%- include('./shared/includes/head', {pageTitle: 'Nexa Terminal'})%>
   <body>
     <%- include('./shared/includes/header', { clientName })%>
     <main class="container">
-     
-     
-      <section style="width: 100%;">
+      <section style="width: 100%">
         <div id="ticker-bar" class="ticker-container">
           <div id="ticker-items" class="ticker-items">
             <!-- Items will be dynamically added here by JavaScript -->
@@ -27,19 +28,25 @@
               <li>Закон за...</li>
               <li>Закон за...</li>
               <li>Закон за...</li>
-              <hr>
-              <a href="" >Отвори ги сите</a>
+              <hr />
+              <a href="">Отвори ги сите</a>
             </ul>
           </div>
           <div>
             <h3>Аукции</h3>
             <ul>
-              <li>Продажба на недвижност кај извршител (со локација на мапс, со целосно инфо од Катастар)...</li>
-              <li>Продажба на недвижност кај други (агенција со одземен имот, стечај и сл.) (со локација на мапс, со целосно инфо од Катастар)...</li>
+              <li>
+                Продажба на недвижност кај извршител (со локација на мапс, со
+                целосно инфо од Катастар)...
+              </li>
+              <li>
+                Продажба на недвижност кај други (агенција со одземен имот,
+                стечај и сл.) (со локација на мапс, со целосно инфо од
+                Катастар)...
+              </li>
               <li>Продажба на ...</li>
-              <hr>
+              <hr />
               <a href="">Отвори ги сите</a>
-
             </ul>
           </div>
           <div>
@@ -50,9 +57,8 @@
               <li>Инфо блог1 ...</li>
               <li>Инфо блог1 ...</li>
               <li>Инфо блог1 ...</li>
-              <hr>
+              <hr />
               <a href="">Отвори ги сите</a>
-
             </ul>
           </div>
           <div>
@@ -63,20 +69,27 @@
               <li>МБПР Грантна компонента ...</li>
               <li>Оглас блог1 ...</li>
               <li>Повик блог1 ...</li>
-              <hr>
+              <hr />
               <a href="">Отвори ги сите</a>
-
             </ul>
           </div>
         </section>
       </div>
-      
-      <section style="padding-top: 5px;" class="consultation-section">
-        <h3>Правна консултациjа</h3>
-          <form class="consultation-form" action="/requested-consultation" method="POST">
-            <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>">
 
-          <textarea name="consultation" id="consultation" placeholder="Внесете го Вашето правно прашање прашање овде..."></textarea>
+      <section style="padding-top: 5px" class="consultation-section">
+        <h3>Правна консултациjа</h3>
+        <form
+          class="consultation-form"
+          action="/requested-consultation"
+          method="POST"
+        >
+          <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>" />
+
+          <textarea
+            name="consultation"
+            id="consultation"
+            placeholder="Внесете го Вашето правно прашање прашање овде..."
+          ></textarea>
           <!-- <label for="budget"></label>
           <select  style="padding: 0;" name="budget">
             <option value="">Избери буџет</option>
@@ -88,19 +101,28 @@
             <option value="">Не повеќе од 500.000 денари</option>
           </select> -->
           <label for="consultationType"></label>
-          <select  style="padding: 0;" name="consultationType">
+          <select style="padding: 0" name="consultationType">
             <option value="">Очекуван одговор</option>
-            <option value="1">Сакам одговор само д службите на NeXa согласно мојата претплата</option>
-            <option value="2">Сакам одговори и од други адвокати, меѓутоа анонимно во однос на мојата фирма</option>
-            <option value="3">Сакам одговори и од други адвокати, слободно споделете мои податоци кон нив</option>
+            <option value="1">
+              Сакам одговор само д службите на NeXa согласно мојата претплата
+            </option>
+            <option value="2">
+              Сакам одговори и од други адвокати, меѓутоа анонимно во однос на
+              мојата фирма
+            </option>
+            <option value="3">
+              Сакам одговори и од други адвокати, слободно споделете мои
+              податоци кон нив
+            </option>
           </select>
           <div class="form-footer">
-            <div class="checkbox-wrapper">
-
-            </div>
+            <div class="checkbox-wrapper"></div>
             <button type="submit" class="btn-primary">Прашај</button>
           </div>
-          <p style="margin-top: 0;">Вашето прашање ќе биде испратено до правник со положен правосуден испит и работно искуство во Македонија.</p>
+          <p style="margin-top: 0">
+            Вашето прашање ќе биде испратено до правник со положен правосуден
+            испит и работно искуство во Македонија.
+          </p>
         </form>
       </section>
     </main>
@@ -108,15 +130,14 @@
   </body>
   <script>
     window.embeddedChatbotConfig = {
-    chatbotId: "ygR3L53Nedk_vc7knbjRW",
-    domain: "www.chatbase.co"
-    }
-    </script>
-    <script
+      chatbotId: "ygR3L53Nedk_vc7knbjRW",
+      domain: "www.chatbase.co",
+    };
+  </script>
+  <script
     src="https://www.chatbase.co/embed.min.js"
     chatbotId="ygR3L53Nedk_vc7knbjRW"
     domain="www.chatbase.co"
-    defer>
-    </script>
+    defer
+  ></script>
 </html>
-

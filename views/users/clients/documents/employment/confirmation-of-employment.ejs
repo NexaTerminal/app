@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/styles/documents.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-  <script src="/scripts/templates/employment/annex-employment-agreement-duration.js" defer></script>
+  <script src="/scripts/templates/employment/confirmation.js" defer></script>
   <script src="/scripts/templates/steps.js" defer></script>
 </head>
 <body style="padding: 0; padding-top: 40px;">
@@ -22,14 +22,17 @@
     </section>
 
     <div class="form-container" style="display: grid; grid-template-columns: 1fr 2fr;">
-      <form class="generate-rent-agreement-doc" action="/documents/employment/generate-annex-duration" method="POST">
+      <form class="generate-confirmation-doc" action="/documents/employment/generate-confirmation" method="POST">
         <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-        
+
         <!-- Step 1: Employee Info -->
         <div class="step active" id="step-1">
           <div class="user-role-selection" style="display: flex; flex-direction: column; width: 100%; padding-bottom: 15px; text-align: left; gap: 6px;">
             <h4>Податоци за вработен</h4>
             <input type="hidden" name="companyName" value="<%= clientName %>" id="companyName">
+            <input type="hidden" name="clientAddress" value="<%= clientAddress %>" id="clientAddress">
+            <input type="hidden" name="clientPIN" value="<%= clientPIN %>" id="clientPIN">
+            <input type="hidden" name="clientManager" value="<%= clientManager %>" id="clientManager">
 
             <!-- Employee Name -->
             <label for="employeeName">Име на вработен</label>
@@ -57,7 +60,17 @@
               <input type="text" name="employeePIN" placeholder="ЕМБГ на вработен" id="employeePIN" class="input-field" required>
               <span class="tooltip-container">
                 <i class="fas fa-info-circle info-icon"></i>
-                <span class="tooltip-text">Внесете го единствениот матичен број на граѓанинот (ЕМБГ).</span>
+                <span class="tooltip-text">Внесете го ЕМБГ бројот на вработениот.</span>
+              </span>
+            </div>
+
+            <!-- Job Position -->
+            <label for="jobPosition">Позиција на работа</label>
+            <div class="input-grid">
+              <input type="text" name="jobPosition" placeholder="Работна позиција" id="jobPosition" class="input-field" required>
+              <span class="tooltip-container">
+                <i class="fas fa-info-circle info-icon"></i>
+                <span class="tooltip-text">Внесете ја позицијата на која е вработен работникот во моментот на издавање на потврдата.</span>
               </span>
             </div>
 
@@ -67,48 +80,28 @@
           </div>
         </div>
 
-        <!-- Step 2: Agreement Info -->
+        <!-- Step 2: Employment Agreement Info -->
         <div class="step" id="step-2">
           <div class="user-role-selection" style="display: flex; flex-direction: column; width: 100%; padding-bottom: 15px; text-align: left; gap: 6px;">
-            <h4>Податоци за договорот кој се изменува</h4>
-            
-            <!-- Agreement Number -->
-            <label for="agreementNo">Архивски број на договор</label>
+            <h4>Податоци за договорот</h4>
+
+            <!-- Agreement Duration Type -->
+            <label for="agreementDurationType">Тип на договор</label>
             <div class="input-grid">
-              <input type="text" name="agreementNo" placeholder="Архивски број на договор" id="agreementNo" class="input-field" required>
+              <input type="text" name="agreementDurationType" placeholder="Тип на договор" id="agreementDurationType" class="input-field" required>
               <span class="tooltip-container">
                 <i class="fas fa-info-circle info-icon"></i>
-                <span class="tooltip-text">Внесете го архивскиот број на договорот кој е предмет на измена, како што е заведен во М1/М2 образецот.</span>
+                <span class="tooltip-text">Внесете го типот на договорот (на определено или неопределено време).</span>
               </span>
             </div>
 
-            <!-- Annex Date -->
-            <label for="annexDate">Датум на склучување на анексот</label>
+            <!-- Defined Duration -->
+            <label for="definedDuration">Временска важност на договорот (ако е применливо)</label>
             <div class="input-grid">
-              <input type="date" name="annexDate" id="annexDate" class="input-field" placeholder="<%=moment().format('YYYY-MM-DD') %>" required>
+              <input type="date" name="definedDuration" id="definedDuration" class="input-field">
               <span class="tooltip-container">
                 <i class="fas fa-info-circle info-icon"></i>
-                <span class="tooltip-text">Внесете го датумот на кој анексот се склучува.</span>
-              </span>
-            </div>
-
-            <!-- End Date -->
-            <label for="endDate">Нов - краен датум на времетраење на договорот</label>
-            <div class="input-grid">
-              <input type="date" name="endDate" id="endDate" class="input-field" placeholder="Датум на истек на договор" required>
-              <span class="tooltip-container">
-                <i class="fas fa-info-circle info-icon"></i>
-                <span class="tooltip-text">Внесете го новиот краен датум односно датумот на истекување на договорот.</span>
-              </span>
-            </div>
-
-            <!-- Changed Article -->
-            <label for="changedArticle">Член во кој е определено времетраење</label>
-            <div class="input-grid">
-              <input type="text" name="changedArticle" placeholder="Член во кој е определено времетраење" id="changedArticle" class="input-field">
-              <span class="tooltip-container">
-                <i class="fas fa-info-circle info-icon"></i>
-                <span class="tooltip-text">Тука се внесува членот во Договорот за вработување во кој е во овој момент определено времетраењето на тој договор. Со овој анекс, всушност го изменуваме тој член од договорот.</span>
+                <span class="tooltip-text">Ако договорот е со определено времетраење, внесете го датумот до кога важи.</span>
               </span>
             </div>
 
@@ -120,7 +113,7 @@
         </div>
       </form>
       
-      <!-- This section will be used to display a live preview of the agreement -->
+      <!-- This section will be used to display a live preview of the confirmation -->
       <div class="presentation-column">
         <p>Визуелна презентација на содржината.</p>
       </div>

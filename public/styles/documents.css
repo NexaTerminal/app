@@ -176,9 +176,72 @@ body {
 }
 
 .step { display: none; } /* Hide all steps by default */
-.progress-bar { width: 100%; background-color: #f3f3f3; border-radius: 10px; margin-bottom: 20px; }
-.progress { width: 0%; height: 15px; background-color: #4caf50; border-radius: 10px; }
+.progress-bar { width: 100%; background-color: #f3f3f3; border-radius: 10px; margin-bottom: 20px; text-align: center; width: 50%; margin: auto; margin-bottom: 2rem;}
+.progress { width: 0%; height: 15px; background-color: #4caf50; border-radius: 10px; margin-bottom: 1rem; padding: 0.5rem; }
 .active { display: block; } /* Show only active step */
 .progress-label { text-align: center; margin-bottom: 10px; }
 .form-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .preview-container { border-left: 1px solid #ccc; padding-left: 20px; }
+
+
+.tooltip-container {
+  position: relative;
+  cursor: pointer;
+  vertical-align: middle;
+  justify-self: end;
+}
+
+/* Tooltip text */
+.tooltip-container .tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above the icon */
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip-container .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip when hovering */
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Styling the info icon */
+.info-icon {
+  color: #007bff;
+  font-size: 0.9em; /* Slightly smaller icon */
+}
+
+/* Grid for input and icon */
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Input field styling for alignment */
+.input-field {
+  width: 100%;
+}
